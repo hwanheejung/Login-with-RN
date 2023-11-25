@@ -15,9 +15,9 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../@types/navigation';
 import AppTextInput from '../components/AppTextInput';
 
-type Props = NativeStackScreenProps<RootStackParamList, 'Login'>;
+type Props = NativeStackScreenProps<RootStackParamList, 'Register'>;
 
-const LoginScreen: React.FC<Props> = ({navigation: {navigate}}) => {
+const RegisterScreen: React.FC<Props> = ({navigation: {navigate}}) => {
   return (
     <SafeAreaView>
       <View
@@ -35,36 +35,25 @@ const LoginScreen: React.FC<Props> = ({navigation: {navigate}}) => {
               fontFamily: Font['poppins-bold'],
               marginVertical: Spacing * 3,
             }}>
-            Login here
+            Create account
           </Text>
           <Text
             style={{
-              fontFamily: Font['poppins-semiBold'],
-              fontSize: FontSize.large,
-              maxWidth: '60%',
+              fontFamily: Font['poppins-regular'],
+              fontSize: FontSize.small,
+              maxWidth: '80%',
               textAlign: 'center',
             }}>
-            Welcome back you've been missed!
+            Create an account so you can explore all the existing jobs
           </Text>
         </View>
         <View
           style={{
             marginVertical: Spacing * 3,
           }}>
+          <AppTextInput placeholder="Username" />
           <AppTextInput placeholder="Email" />
           <AppTextInput placeholder="Password" />
-        </View>
-
-        <View>
-          <Text
-            style={{
-              fontFamily: Font['poppins-semiBold'],
-              fontSize: FontSize.small,
-              color: Colors.primary,
-              alignSelf: 'flex-end',
-            }}>
-            Forgot your password ?
-          </Text>
         </View>
 
         <TouchableOpacity
@@ -88,11 +77,11 @@ const LoginScreen: React.FC<Props> = ({navigation: {navigate}}) => {
               textAlign: 'center',
               fontSize: FontSize.large,
             }}>
-            Sign in
+            Sign up
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => navigate('Register')}
+          onPress={() => navigate('Login')}
           style={{
             padding: Spacing,
           }}>
@@ -103,7 +92,7 @@ const LoginScreen: React.FC<Props> = ({navigation: {navigate}}) => {
               textAlign: 'center',
               fontSize: FontSize.small,
             }}>
-            Create new account
+            Already have an account
           </Text>
         </TouchableOpacity>
       </View>
@@ -111,6 +100,4 @@ const LoginScreen: React.FC<Props> = ({navigation: {navigate}}) => {
   );
 };
 
-export default LoginScreen;
-
-const styles = StyleSheet.create({});
+export default RegisterScreen;
